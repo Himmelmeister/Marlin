@@ -30,7 +30,7 @@
 #define Y_DIAG_PIN                         P1_27  // Y-
 #define Z_DIAG_PIN                         P1_25  // Z-
 #define E0_DIAG_PIN                        P1_28  // X+
-#define Z2_DIAG_PIN                        P1_26  // Y+
+#define E1_DIAG_PIN                        P1_26  // Y+
 
 //
 // Limit Switches
@@ -125,15 +125,8 @@
   #define E0_CS_PIN                        P1_08
 #endif
 
-#define Z2_STEP_PIN        P0_01
-#define Z2_DIR_PIN         P0_00
-#define Z2_ENABLE_PIN      P0_10								
-#ifndef Z2_CS_PIN
-  #define Z2_CS_PIN        P1_01
-#endif
-
-#ifndef Z2_CS_PIN
-  #define Z2_CS_PIN                        P1_01
+#ifndef E1_CS_PIN
+  #define E1_CS_PIN                        P1_01
 #endif
 
 //
@@ -165,7 +158,7 @@
   //#define Z_HARDWARE_SERIAL  Serial1
   //#define Z2_HARDWARE_SERIAL Serial1
   //#define E0_HARDWARE_SERIAL Serial1
-  //#define Z2_HARDWARE_SERIAL Serial1
+  //#define E1_HARDWARE_SERIAL Serial1
   //#define E2_HARDWARE_SERIAL Serial1
   //#define E3_HARDWARE_SERIAL Serial1
   //#define E4_HARDWARE_SERIAL Serial1
@@ -185,8 +178,8 @@
   #define E0_SERIAL_TX_PIN                 P1_09
   #define E0_SERIAL_RX_PIN                 P1_08
 
-  #define Z2_SERIAL_TX_PIN                 P1_04
-  #define Z2_SERIAL_RX_PIN                 P1_01
+  #define E1_SERIAL_TX_PIN                 P1_04
+  #define E1_SERIAL_RX_PIN                 P1_01
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE 19200
@@ -221,12 +214,11 @@
 #define EXPA2_09_PIN                       P0_15
 #define EXPA2_10_PIN                       P0_17
 
-
 #if HAS_SPI_LCD
 
   #if ENABLED(ANET_FULL_GRAPHICS_LCD)
 
- //   #error "CAUTION! ANET_FULL_GRAPHICS_LCD requires wiring modifications. See 'pins_BTT_SKR_V1_3.h' for details. Comment out this line to continue."
+    #error "CAUTION! ANET_FULL_GRAPHICS_LCD requires wiring modifications. See 'pins_BTT_SKR_V1_3.h' for details. Comment out this line to continue."
 
    /**
     * 1. Cut the tab off the LCD connector so it can be plugged into the "EXP1" connector the other way.
@@ -249,14 +241,14 @@
     *                   LCD                             LCD
     */
 
-    #define LCD_PINS_RS             EXPA1_09_PIN 
-    #define BTN_EN1                 EXPA1_04_PIN 
-    #define BTN_EN2                 EXPA1_06_PIN 
-    #define BTN_ENC                 EXPA1_08_PIN 
-    #define LCD_PINS_ENABLE         EXPA1_07_PIN 
-    #define LCD_PINS_D4             EXPA1_05_PIN 
-	#define KILL_PIN            	EXPA1_03_PIN // reset
-	#define BEEPER_PIN          	EXPA1_10_PIN // beeper
+    #define LCD_PINS_RS             EXPA1_03_PIN
+
+    #define BTN_EN1                 EXPA1_06_PIN
+    #define BTN_EN2                 EXPA1_04_PIN
+    #define BTN_ENC                 EXPA1_08_PIN
+
+    #define LCD_PINS_ENABLE         EXPA1_05_PIN
+    #define LCD_PINS_D4             EXPA1_07_PIN
 
   #elif ENABLED(CR10_STOCKDISPLAY)
 
