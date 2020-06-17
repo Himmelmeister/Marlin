@@ -253,8 +253,8 @@
     #define BTN_ENC                 EXPA1_08_PIN 
     #define LCD_PINS_ENABLE         EXPA1_07_PIN 
     #define LCD_PINS_D4             EXPA1_05_PIN 
-	#define KILL_PIN            	EXPA1_03_PIN // reset
-	#define BEEPER_PIN          	EXPA1_10_PIN // beeper
+	#define KILL_PIN            	EXPA1_03_PIN
+	#define BEEPER_PIN          	EXPA1_10_PIN
 
   #elif ENABLED(CR10_STOCKDISPLAY)
 
