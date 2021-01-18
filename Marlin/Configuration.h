@@ -485,12 +485,19 @@
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
 
-    #if ENABLED(PID_PARAMS_PER_HOTEND)
+  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
+
+  // Jochens Anet-SKR
+  #define DEFAULT_Kp 18.67
+  #define DEFAULT_Ki 1.22
+  #define DEFAULT_Kd 71.41
+
+  #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify between 1 and HOTENDS values per array.
     // If fewer than EXTRUDER values are provided, the last element will be repeated.
-    #define DEFAULT_Kp_LIST {  22.20,  22.20 }
-    #define DEFAULT_Ki_LIST {   1.08,   1.08 }
-    #define DEFAULT_Kd_LIST { 114.00, 114.00 }
+    #define DEFAULT_Kp_LIST {  18.67,  18.67 }
+    #define DEFAULT_Ki_LIST {   1.22,   1.22 }
+    #define DEFAULT_Kd_LIST {  71.41,  71.41 }
   #else
   // Jochens Anet-SKR
   #define DEFAULT_Kp 18.67
@@ -1318,7 +1325,7 @@
  * these options to restore the prior leveling state or to always enable
  * leveling immediately after G28.
  */
-#define ENABLE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 
 /**
  * Auto-leveling needs preheating
